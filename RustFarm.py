@@ -25,6 +25,10 @@ def getresult(array):
     return result
 
 
+def getkit():
+    pass
+
+
 print(*sorts, sep='\n')
 print()
 print(getresult(zip(*sorts)), sep='\n')
