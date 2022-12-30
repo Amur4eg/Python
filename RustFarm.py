@@ -1,4 +1,4 @@
-with open('Source\seeds.txt', 'r') as f:
+with open(r'Source\seeds.txt', 'r') as f:
     sorts = list(map(lambda c: list(*c), [s.split() for s in f.readlines()]))
 
 
