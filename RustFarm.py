@@ -1,4 +1,6 @@
-sorts = [list(s) for s in input().split()]
+with open('Source\seeds.txt', 'r') as f:
+    sorts = list(map(lambda c: list(*c), [s.split() for s in f.readlines()]))
+
 print(sorts)
 
 
