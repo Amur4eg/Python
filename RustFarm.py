@@ -1,8 +1,6 @@
 with open('Source\seeds.txt', 'r') as f:
     sorts = list(map(lambda c: list(*c), [s.split() for s in f.readlines()]))
 
-print(sorts)
-
 
 def genetic(gen):
     result = []
@@ -14,7 +12,7 @@ def genetic(gen):
 
 
 def getresult(array):
-    weight = {'w': 100, 'x': 100, 'g': 60, 'y': 60, 'h': 60}
+    weight = {'W': 100, 'X': 100, 'G': 60, 'Y': 60, 'H': 60}
     result = []
     for elm in array:
         res = dict()
@@ -25,3 +23,8 @@ def getresult(array):
                 res.setdefault(c, weight[c])
         result.append(genetic(res))
     return result
+
+
+print(*sorts, sep='\n')
+print()
+print(getresult(zip(*sorts)), sep='\n')
