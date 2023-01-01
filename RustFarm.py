@@ -25,10 +25,15 @@ def getresult(array):
     return result
 
 
-def getkit(array):
-    pass
-
-
-print(*sorts, sep='\n')
-print()
-print(*getresult(zip(*sorts)))
+def getkit(a):
+    num = len(a)
+    count = 0
+    for i in range(num - 4):
+        for j in range(i + 1, num - 3):
+            for k in range(j + 1, num - 2):
+                for l in range(k + 1, num - 1):
+                    for m in range(l + 1, num):
+                        kit = [a[i], a[j], a[k], a[l], a[m]]
+                        count += 1
+                        print(f'{count}/{num}', kit)
+getkit(sorts)
