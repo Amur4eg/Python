@@ -46,7 +46,7 @@ def getkit(a):
                     for m in range(l + 1, num):
                         kit = [a[i], a[j], a[k], a[l], a[m]]
                         count += 1
-                        #print(f'{count}/{num}', *kit, sep='\n')
+                        print(f'{count}/{num}', kit)
                         print(*getresult(transponse(kit)))
 
 
