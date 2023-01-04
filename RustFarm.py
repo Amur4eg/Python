@@ -1,5 +1,7 @@
 with open(r'Source\seeds.txt', 'r') as f:
-    sorts = list(map(lambda c: list(*c), [s.split() for s in f.readlines()]))
+    seed = [s.strip() for s in f.readlines()]
+
+print(seed)
 
 
 def transponse(array):
@@ -21,6 +23,9 @@ def genetic(gen):
     return result
 
 
+def getquality():
+
+
 def getresult(array):
     '''функция оценки  матрицы'''
     weight = {'W': 100, 'X': 100, 'G': 60, 'Y': 60, 'H': 60}
@@ -33,21 +38,23 @@ def getresult(array):
             else:
                 res.setdefault(c, weight[c])
         result.append(genetic(res))
-    return result
+    if result in array:
+        return 0
+    else:
+        return result
 
 
-def getkit(a):
-    num = len(a)
+def getkit(array):
+    num = len(array)
     count = 0
     for i in range(num - 4):
         for j in range(i + 1, num - 3):
             for k in range(j + 1, num - 2):
                 for l in range(k + 1, num - 1):
                     for m in range(l + 1, num):
-                        kit = [a[i], a[j], a[k], a[l], a[m]]
+                        kit = [array[i], array[j], array[k], array[l], array[m]]
                         count += 1
                         print(f'{count}/{num}', kit)
-                        print(*getresult(transponse(kit)))
+                        print(getresult(transponse(kit)))
 
-
-getkit(sorts)
+getkit(seed)
